@@ -6518,7 +6518,7 @@ from_stream(std::basic_istream<CharT, Traits>& is, const CharT* fmt,
                         long double S;
                         read(is, rld{S, 1, width == -1 ? w : static_cast<unsigned>(width)});
                         if (!is.fail())
-                            s = round<Duration>(duration<long double>{S});
+                            s = round<Duration>(std::chrono::duration<long double>{S});
 #if !ONLY_C_LOCALE
                     }
                     else if (modified == CharT{'O'})
@@ -6555,7 +6555,7 @@ from_stream(std::basic_istream<CharT, Traits>& is, const CharT* fmt,
                         {
                             h = hours{H};
                             min = minutes{M};
-                            s = round<Duration>(duration<long double>{S});
+                            s = round<Duration>(std::chrono::duration<long double>{S});
                         }
                     }
                     else
